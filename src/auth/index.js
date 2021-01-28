@@ -11,4 +11,3 @@ const signIn = makeSignIn(signInWithEmailAndPassword);
 const signOut = makeSignOut(signOutUser);
 
 export { signUp, signIn, signOut };
-//
