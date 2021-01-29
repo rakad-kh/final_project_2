@@ -26,6 +26,7 @@ const cellStyle = {
 const Row = ({ row }) => {
   const [open, setOpen] = useState(false);
   const classes = useRowStyles();
+  const { hour, location, numOfBookedAppointments, volunteers } = row;
 
   return (
     <Fragment>
@@ -40,34 +41,37 @@ const Row = ({ row }) => {
           </IconButton>
         </TableCell>
 
-        <TableCell align="right" style={cellStyle}>
-          {row.fat}
+        <TableCell align="left" style={cellStyle}>
+          {numOfBookedAppointments}
+        </TableCell>
+        <TableCell align="center" style={cellStyle}>
+          {location}
         </TableCell>
         <TableCell align="right" style={cellStyle}>
-          {row.carbs}
-        </TableCell>
-        <TableCell align="right" style={cellStyle}>
-          {row.protein}
+          {hour}
         </TableCell>
       </TableRow>
-      <CollapseRow open={open} history={row.history} />
+      <CollapseRow
+        open={open}
+        volunteers={volunteers}
+        numOfBookedAppointments={numOfBookedAppointments}
+      />
     </Fragment>
   );
 };
 
 Row.propTypes = {
   row: PropTypes.shape({
-    carbs: PropTypes.number.isRequired,
-    fat: PropTypes.number.isRequired,
-    history: PropTypes.arrayOf(
+    hour: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    numOfBookedAppointments: PropTypes.number.isRequired,
+    volunteers: PropTypes.arrayOf(
       PropTypes.shape({
-        amount: PropTypes.number.isRequired,
-        customerId: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+        isArrivalConfirmed: PropTypes.bool.isRequired,
       })
     ).isRequired,
-
-    protein: PropTypes.number.isRequired,
   }).isRequired,
 };
 
