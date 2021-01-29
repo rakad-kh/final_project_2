@@ -1,4 +1,4 @@
-import NavBarButton from '../NavBarButton';
+import { NavBarButton } from '../buttons'
 import Logo from '../Logo';
 import './NavBar.css';
 
