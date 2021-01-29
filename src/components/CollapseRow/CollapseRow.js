@@ -5,25 +5,71 @@ import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
+import { makeStyles } from '@material-ui/core/styles';
 
-const CollapseRow = ({ open, history }) => {
+import { DeleteAppointmentButton } from '../buttons';
+
+import './CollapseRow.css';
+
+import { getEmptyRows } from './utils';
+
+const ArrivalApproved = () => <div className="arrivalApproved">הגעה אושרה</div>;
+
+const ArrivalDisapproved = () => (
+  <div className="arrivalDisapproved">אין אישור הגעה</div>
+);
+
+const useCellStyles = makeStyles({
+  sizeSmall: {
+    padding: 0,
+  },
+  root: {
+    borderSpacing: '0 5px !important',
+    borderCollapse: 'separate !important',
+  },
+});
+
+const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
+  const classes = useCellStyles();
+
   return (
     <TableRow>
-      <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+      <TableCell
+        style={{
+          paddingBottom: 0,
+          paddingTop: 0,
+        }}
+        colSpan={6}
+      >
         <Collapse in={open} timeout="auto" unmountOnExit>
           <Box margin={1}>
             <Table size="small" aria-label="purchases">
               <TableBody>
-                {history.map((historyRow) => (
-                  <TableRow key={historyRow.date}>
-                    <TableCell>{historyRow.customerId}</TableCell>
-                    <TableCell>{historyRow.amount}</TableCell>
-                    <TableCell>{100}</TableCell>
+                {volunteers.map(({ name, number, isArrivalConfirmed }) => (
+                  <TableRow key={name} className="tableRow">
+                    <TableCell
+                      className={['tableCell', classes.sizeSmall].join(' ')}
+                    >
+                      {isArrivalConfirmed ? (
+                        <ArrivalApproved />
+                      ) : (
+                        <ArrivalDisapproved />
+                      )}
+                    </TableCell>
+                    <TableCell className="tableCell" align="center">
+                      {number}
+                    </TableCell>
+                    <TableCell className="tableCell" align="right">
+                      {name}
+                    </TableCell>
                   </TableRow>
                 ))}
+
+                {getEmptyRows(numOfBookedAppointments, volunteers.length)}
               </TableBody>
             </Table>
           </Box>
+          <DeleteAppointmentButton />
         </Collapse>
       </TableCell>
     </TableRow>
@@ -32,11 +78,11 @@ const CollapseRow = ({ open, history }) => {
 
 CollapseRow.propTypes = {
   open: PropTypes.bool.isRequired,
-  history: PropTypes.arrayOf(
+  volunteers: PropTypes.arrayOf(
     PropTypes.shape({
-      amount: PropTypes.number.isRequired,
-      customerId: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+      isArrivalConfirmed: PropTypes.bool.isRequired,
     })
   ).isRequired,
 };
