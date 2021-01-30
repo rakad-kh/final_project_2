@@ -17,7 +17,6 @@ export default function SelectButton({ setData, header, content, data }) {
   const classes = useStyles();
   const handleChange = (event) => {
     setData(event.target.value);
-    // console.log(data)
   };
 
   return (
