@@ -5,6 +5,7 @@ import BookedAppointmentsContainer from '../../BookedAppointmentsContainer';
 import AddLocationOutlinedIcon from '@material-ui/icons/AddLocationOutlined';
 
 import './BookedAppointments.css';
+
 const hospitalName = [
   'איכילוב',
   'תל השומר',
@@ -18,7 +19,7 @@ const BookedAppointments = () => {
   return (
     <div>
       <div className="selectButtonContainer">
-        <AddLocationOutlinedIcon style={{ marginTop: 29 }} />
+        <AddLocationOutlinedIcon className="addLocationOutlinedIcon" />
         <SelectButton
           header={'בית חולים'}
           content={hospitalName}
