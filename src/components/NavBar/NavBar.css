@@ -1,6 +1,6 @@
 .navBar {
   height: 80px;
-  background: #347d8d 0% 0% no-repeat padding-box;
+  background: var(--main-color) 0% 0% no-repeat padding-box;
   width: 100%;
   display: grid;
 
