@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+:root {
+  --main-color: #347d8d;
+}
+
 button:focus {
   outline: none;
 }
