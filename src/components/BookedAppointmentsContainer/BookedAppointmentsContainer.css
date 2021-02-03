@@ -3,6 +3,8 @@
 }
 .tableContainer {
   display: flex;
+  
   justify-content: center;
+  
   background: #f3f5f7;
 }

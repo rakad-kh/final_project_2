@@ -23,10 +23,6 @@ const useCellStyles = makeStyles({
   sizeSmall: {
     padding: 0,
   },
-  root: {
-    borderSpacing: '0 5px !important',
-    borderCollapse: 'separate !important',
-  },
 });
 
 const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
@@ -43,7 +39,15 @@ const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
       >
         <Collapse in={open} timeout="auto" unmountOnExit>
           <Box margin={1}>
-            <Table size="small" aria-label="purchases">
+            <Table size="small" aria-label="purchases" style={{
+              borderCollapse: 'separate',
+              borderSpacing: '0px 8px ',
+              width: '100%',
+              background: 'white',
+              width: '960px',
+              height: '48px',
+
+            }}>
               <TableBody>
                 {volunteers.map(({ name, number, isArrivalConfirmed }) => (
                   <TableRow key={name} className="tableRow">
@@ -53,8 +57,8 @@ const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
                       {isArrivalConfirmed ? (
                         <ArrivalApproved />
                       ) : (
-                        <ArrivalDisapproved />
-                      )}
+                          <ArrivalDisapproved />
+                        )}
                     </TableCell>
                     <TableCell className="tableCell" align="center">
                       {number}
@@ -64,15 +68,15 @@ const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
                     </TableCell>
                   </TableRow>
                 ))}
-
-                {getEmptyRows(numOfBookedAppointments, volunteers.length)}
+                <TableRow key='empty' className="tableRow">
+                  {getEmptyRows(numOfBookedAppointments, volunteers.length)}</TableRow>
               </TableBody>
             </Table>
           </Box>
           <DeleteAppointmentButton />
         </Collapse>
       </TableCell>
-    </TableRow>
+    </TableRow >
   );
 };
 

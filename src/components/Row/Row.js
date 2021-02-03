@@ -10,9 +10,10 @@ import CollapseRow from '../CollapseRow';
 
 const useRowStyles = makeStyles({
   root: {
-    '& > *': {
-      borderBottom: 'unset',
-    },
+    borderRadius: '4px',
+    boxShadow: '0px 2px 4px #0000002E',
+    backgroundColor: 'white',
+
   },
 });
 
@@ -21,6 +22,8 @@ const cellStyle = {
   letterSpacing: '0px',
   color: '#272932',
   opacity: '1',
+  paddingBottom: 0,
+  paddingTop: 0,
 };
 
 const Row = ({ row }) => {
@@ -30,8 +33,10 @@ const Row = ({ row }) => {
 
   return (
     <Fragment>
-      <TableRow className={classes.root}>
-        <TableCell>
+      <TableRow className={classes.root} >
+
+
+        <TableCell width='33%' style={cellStyle}>
           <IconButton
             aria-label="expand row"
             size="small"
@@ -39,24 +44,30 @@ const Row = ({ row }) => {
           >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
-        </TableCell>
 
-        <TableCell align="left" style={cellStyle}>
-          {numOfBookedAppointments}
+
+          <div align='center'>
+            {numOfBookedAppointments}
+          </div>
+
+
         </TableCell>
-        <TableCell align="center" style={cellStyle}>
+        <TableCell width='33%' align='center' style={cellStyle}>
           {location}
         </TableCell>
-        <TableCell align="right" style={cellStyle}>
+        <TableCell width='33%' align='center' style={cellStyle}>
           {hour}
         </TableCell>
+        {/* <p align='right'>  יום ראשון 16/8/2020 </p> */}
       </TableRow>
+
       <CollapseRow
         open={open}
         volunteers={volunteers}
         numOfBookedAppointments={numOfBookedAppointments}
       />
-    </Fragment>
+      {/* <TableRow style={{ backgroundColor: 'red', color: 'blue', width: '10px' }} >k</TableRow> */}
+    </Fragment >
   );
 };
 

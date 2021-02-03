@@ -15,35 +15,47 @@ const rows = [createData('12:00', 'haifa', 4), createData('14:00', 'haifa', 7)];
 const cellStyle = {
   font: 'normal normal normal 16px/24px Rubik',
   color: '#272932',
-  opacity: '1',
+  opacity: '1 ',
+  paddingBottom: 0,
+  paddingTop: 0,
 };
+const rowStyle = {
+  font: 'normal normal normal 16px/24px Rubik',
+  color: '#272932',
+  opacity: '1 ',
 
+};
 const CollapsibleTable = () => {
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label="collapsible table">
-        <TableHead>
-          <TableRow>
-            <TableCell />
+    // <TableContainer component={Paper}  >
+    <TableContainer>
+      <Table style={{
+        borderCollapse: 'separate',
+        borderSpacing: '0px 4px ',
+        width: '960px',
+        height: '48px',
+      }}  >
+        <TableHead align='right'>
+          <TableRow style={rowStyle}>
 
-            <TableCell align="left" style={cellStyle}>
+            <TableCell style={cellStyle} width='33%' align='center'>
               רשומים
             </TableCell>
-            <TableCell align="center" style={cellStyle}>
+            <TableCell style={cellStyle} width='33%' align='center'>
               מקום
             </TableCell>
-            <TableCell align="right" style={cellStyle}>
+            <TableCell style={cellStyle} width='33%' align='center'>
               שעה
             </TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody >
           {rows.map((row) => (
             <Row key={row.hour} row={row} />
           ))}
         </TableBody>
       </Table>
-    </TableContainer>
+    </TableContainer >
   );
 };
 
