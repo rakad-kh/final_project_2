@@ -22,7 +22,7 @@ const rowStyle = {
   opacity: '1 ',
 };
 
-const rows = [
+let rows = [
   {
     name: 'ישראל ישראלי',
     phone: '054-7696192',
@@ -37,7 +37,7 @@ const rows = [
   },
   {
     name: 'ישראל ישראלי',
-    phone: '054-7696192',
+    phone: '052-7696192',
     address: 'הבנים 4, כפר סבא',
     hospital: 'הבנים 4, כפר סבא',
   },
@@ -49,7 +49,17 @@ const rows = [
   },
 ];
 
-const UsersTable = () => {
+const UsersTable = ({ nameOrNumber }) => {
+  let realRows = rows;
+  if (nameOrNumber) {
+    realRows = rows.filter(
+      (row) =>
+        row.phone.includes(nameOrNumber) || row.name.includes(nameOrNumber)
+    );
+  } else {
+    realRows = rows;
+  }
+
   return (
     <TableContainer>
       <Table
@@ -78,7 +88,7 @@ const UsersTable = () => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
+          {realRows.map((row, index) => (
             <UsersTableRow key={index} row={row} />
           ))}
         </TableBody>
