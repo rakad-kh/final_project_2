@@ -35,7 +35,7 @@ const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
           paddingBottom: 0,
           paddingTop: 0,
         }}
-        colSpan={6}
+        colSpan={4}
       >
         <Collapse in={open} timeout="auto" unmountOnExit>
           <Box margin={1}>
@@ -44,9 +44,6 @@ const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
               borderSpacing: '0px 8px ',
               width: '100%',
               background: 'white',
-              width: '960px',
-              height: '48px',
-
             }}>
               <TableBody>
                 {volunteers.map(({ name, number, isArrivalConfirmed }) => (
@@ -69,7 +66,10 @@ const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
                   </TableRow>
                 ))}
                 <TableRow key='empty' className="tableRow">
-                  {getEmptyRows(numOfBookedAppointments, volunteers.length)}</TableRow>
+                  <TableCell className="tableCell" align="center" colSpan={3}>
+                    אין רישום
+                  </TableCell>
+                </TableRow>
               </TableBody>
             </Table>
           </Box>

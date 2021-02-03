@@ -18,6 +18,7 @@ const cellStyle = {
   opacity: '1 ',
   paddingBottom: 0,
   paddingTop: 0,
+  textAlign: 'center'
 };
 const rowStyle = {
   font: 'normal normal normal 16px/24px Rubik',
@@ -32,19 +33,20 @@ const CollapsibleTable = () => {
       <Table style={{
         borderCollapse: 'separate',
         borderSpacing: '0px 4px ',
-        width: '960px',
+        width: '100%',
         height: '48px',
       }}  >
         <TableHead align='right'>
           <TableRow style={rowStyle}>
-
-            <TableCell style={cellStyle} width='33%' align='center'>
+            <TableCell style={cellStyle} width='10%'>
+            </TableCell>
+            <TableCell style={cellStyle} width='30%'>
               רשומים
             </TableCell>
-            <TableCell style={cellStyle} width='33%' align='center'>
+            <TableCell style={cellStyle} width='30%'>
               מקום
             </TableCell>
-            <TableCell style={cellStyle} width='33%' align='center'>
+            <TableCell style={cellStyle} width='30%'>
               שעה
             </TableCell>
           </TableRow>

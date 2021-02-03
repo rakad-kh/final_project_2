@@ -7,6 +7,7 @@ import TableRow from '@material-ui/core/TableRow';
 import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import CollapseRow from '../CollapseRow';
+import { FormHelperText } from '@material-ui/core';
 
 const useRowStyles = makeStyles({
   root: {
@@ -24,6 +25,8 @@ const cellStyle = {
   opacity: '1',
   paddingBottom: 0,
   paddingTop: 0,
+  padding: 0,
+  textAlign: 'center'
 };
 
 const Row = ({ row }) => {
@@ -34,9 +37,7 @@ const Row = ({ row }) => {
   return (
     <Fragment>
       <TableRow className={classes.root} >
-
-
-        <TableCell width='33%' style={cellStyle}>
+        <TableCell width='10%' style={cellStyle}>
           <IconButton
             aria-label="expand row"
             size="small"
@@ -44,18 +45,14 @@ const Row = ({ row }) => {
           >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
-
-
-          <div align='center'>
-            {numOfBookedAppointments}
-          </div>
-
-
         </TableCell>
-        <TableCell width='33%' align='center' style={cellStyle}>
+        <TableCell width='30%' style={cellStyle}>
+          {numOfBookedAppointments}
+        </TableCell>
+        <TableCell width='30%' style={cellStyle}>
           {location}
         </TableCell>
-        <TableCell width='33%' align='center' style={cellStyle}>
+        <TableCell width='30%' style={cellStyle}>
           {hour}
         </TableCell>
         {/* <p align='right'>  יום ראשון 16/8/2020 </p> */}
