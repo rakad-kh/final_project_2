@@ -13,7 +13,7 @@ const UsersSearch = () => {
       </div>
       <div className="tableContainer">
         <div className="usersTable">
-          <UsersTable />
+          <UsersTable nameOrNumber={text} />
         </div>
       </div>
     </Fragment>
