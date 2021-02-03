@@ -50,7 +50,6 @@ const Row = ({ row, onDelete }) => {
         <TableCell width="33%" align="center" style={cellStyle}>
           {hour}
         </TableCell>
-        {/* <p align='right'>  יום ראשון 16/8/2020 </p> */}
       </TableRow>
 
       <CollapseRow
