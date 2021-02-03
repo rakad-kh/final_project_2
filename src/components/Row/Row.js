@@ -13,7 +13,6 @@ const useRowStyles = makeStyles({
     borderRadius: '4px',
     boxShadow: '0px 2px 4px #0000002E',
     backgroundColor: 'white',
-
   },
 });
 
@@ -26,17 +25,15 @@ const cellStyle = {
   paddingTop: 0,
 };
 
-const Row = ({ row }) => {
+const Row = ({ row, onDelete }) => {
   const [open, setOpen] = useState(false);
   const classes = useRowStyles();
   const { hour, location, numOfBookedAppointments, volunteers } = row;
 
   return (
     <Fragment>
-      <TableRow className={classes.root} >
-
-
-        <TableCell width='33%' style={cellStyle}>
+      <TableRow className={classes.root}>
+        <TableCell width="33%" style={cellStyle}>
           <IconButton
             aria-label="expand row"
             size="small"
@@ -45,29 +42,23 @@ const Row = ({ row }) => {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
 
-
-          <div align='center'>
-            {numOfBookedAppointments}
-          </div>
-
-
+          <div align="center">{numOfBookedAppointments}</div>
         </TableCell>
-        <TableCell width='33%' align='center' style={cellStyle}>
+        <TableCell width="33%" align="center" style={cellStyle}>
           {location}
         </TableCell>
-        <TableCell width='33%' align='center' style={cellStyle}>
+        <TableCell width="33%" align="center" style={cellStyle}>
           {hour}
         </TableCell>
-        {/* <p align='right'>  יום ראשון 16/8/2020 </p> */}
       </TableRow>
 
       <CollapseRow
         open={open}
         volunteers={volunteers}
         numOfBookedAppointments={numOfBookedAppointments}
+        onDelete={onDelete}
       />
-      {/* <TableRow style={{ backgroundColor: 'red', color: 'blue', width: '10px' }} >k</TableRow> */}
-    </Fragment >
+    </Fragment>
   );
 };
 
