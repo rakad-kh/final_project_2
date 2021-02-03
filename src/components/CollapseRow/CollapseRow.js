@@ -25,7 +25,12 @@ const useCellStyles = makeStyles({
   },
 });
 
-const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
+const CollapseRow = ({
+  open,
+  volunteers,
+  numOfBookedAppointments,
+  onDelete,
+}) => {
   const classes = useCellStyles();
 
   return (
@@ -39,15 +44,18 @@ const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
       >
         <Collapse in={open} timeout="auto" unmountOnExit>
           <Box margin={1}>
-            <Table size="small" aria-label="purchases" style={{
-              borderCollapse: 'separate',
-              borderSpacing: '0px 8px ',
-              width: '100%',
-              background: 'white',
-              width: '960px',
-              height: '48px',
-
-            }}>
+            <Table
+              size="small"
+              aria-label="purchases"
+              style={{
+                borderCollapse: 'separate',
+                borderSpacing: '0px 8px ',
+                width: '100%',
+                background: 'white',
+                width: '960px',
+                height: '48px',
+              }}
+            >
               <TableBody>
                 {volunteers.map(({ name, number, isArrivalConfirmed }) => (
                   <TableRow key={name} className="tableRow">
@@ -57,8 +65,8 @@ const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
                       {isArrivalConfirmed ? (
                         <ArrivalApproved />
                       ) : (
-                          <ArrivalDisapproved />
-                        )}
+                        <ArrivalDisapproved />
+                      )}
                     </TableCell>
                     <TableCell className="tableCell" align="center">
                       {number}
@@ -68,15 +76,16 @@ const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
                     </TableCell>
                   </TableRow>
                 ))}
-                <TableRow key='empty' className="tableRow">
-                  {getEmptyRows(numOfBookedAppointments, volunteers.length)}</TableRow>
+                <TableRow key="empty" className="tableRow">
+                  {getEmptyRows(numOfBookedAppointments, volunteers.length)}
+                </TableRow>
               </TableBody>
             </Table>
           </Box>
-          <DeleteAppointmentButton />
+          <DeleteAppointmentButton onClick={onDelete} />
         </Collapse>
       </TableCell>
-    </TableRow >
+    </TableRow>
   );
 };
 
