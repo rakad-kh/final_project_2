@@ -28,10 +28,8 @@ const CollapsibleTable = () => {
     createData('14:00', 'haifa', 7),
     createData('16:00', 'haifa', 8),
   ]);
-  const makeOnDelete = (index) => () => {
+  const makeOnDelete = (index) => () =>
     setRows(rows.filter((_, i) => i !== index));
-    console.log(rows);
-  };
   return (
     <TableContainer>
       <Table
