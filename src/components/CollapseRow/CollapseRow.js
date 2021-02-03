@@ -25,7 +25,12 @@ const useCellStyles = makeStyles({
   },
 });
 
-const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
+const CollapseRow = ({
+  open,
+  volunteers,
+  numOfBookedAppointments,
+  onDelete,
+}) => {
   const classes = useCellStyles();
 
   return (
@@ -73,10 +78,10 @@ const CollapseRow = ({ open, volunteers, numOfBookedAppointments }) => {
               </TableBody>
             </Table>
           </Box>
-          <DeleteAppointmentButton />
+          <DeleteAppointmentButton onClick={onDelete} />
         </Collapse>
       </TableCell>
-    </TableRow >
+    </TableRow>
   );
 };
 
