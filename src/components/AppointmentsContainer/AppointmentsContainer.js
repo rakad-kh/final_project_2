@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import { manHoldingBox } from '../../assets';
 import './AppointmentsContainer.css';
 import AppointmentsTable from '../AppointmentsTable';
@@ -14,7 +15,10 @@ const AppointmentsContainer = ({ appArray }) => {
         />
       </div>
 
-      <div className={['tableContainer', appArray.length ? null : 'hide']}>
+      <div
+        className="tableContainer"
+        className={appArray.length ? null : 'hide'}
+      >
         <AppointmentsTable rows={appArray} />
       </div>
     </div>

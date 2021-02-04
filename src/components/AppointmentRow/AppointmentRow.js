@@ -28,7 +28,9 @@ const AppointmentRow = ({ row }) => {
 
   return (
     <TableRow className={classes.root}>
-      <TableCell width="10%" style={cellStyle}></TableCell>
+      <TableCell width="10%" style={cellStyle}>
+        23
+      </TableCell>
       <TableCell width="30%" style={cellStyle}>
         {squares}
       </TableCell>
