@@ -1,5 +1,6 @@
 import { manHoldingBox } from '../../assets';
 import './AppointmentsContainer.css';
+import AppointmentsTable from '../AppointmentsTable';
 
 const AppointmentsContainer = ({ appArray }) => {
   return (
@@ -14,7 +15,7 @@ const AppointmentsContainer = ({ appArray }) => {
       </div>
 
       <div className={['tableContainer', appArray.length ? null : 'hide']}>
-        <div className="appointmentsTable"></div>
+        <AppointmentsTable rows={appArray} />
       </div>
     </div>
   );
