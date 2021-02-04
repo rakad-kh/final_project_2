@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 
+import DeleteAppointmentButton from '../buttons/DeleteAppointmentButton';
 const useRowStyles = makeStyles({
   root: {
     borderRadius: '4px',
@@ -22,14 +23,14 @@ const cellStyle = {
   textAlign: 'center',
 };
 
-const AppointmentRow = ({ row }) => {
+const AppointmentRow = ({ row, onDelete }) => {
   const classes = useRowStyles();
   const { donation, hospital, date, hour, squares } = row;
 
   return (
     <TableRow className={classes.root}>
       <TableCell width="10%" style={cellStyle}>
-        23
+        <DeleteAppointmentButton onClick={onDelete} />
       </TableCell>
       <TableCell width="30%" style={cellStyle}>
         {squares}

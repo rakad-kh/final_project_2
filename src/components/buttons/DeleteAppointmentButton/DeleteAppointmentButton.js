@@ -3,11 +3,11 @@ import Button from '@material-ui/core/Button';
 
 import './DeleteAppointmentButton.css';
 
-const DeleteAppointmentButton = ({ onClick }) => {
+const DeleteAppointmentButton = ({ onClick, title }) => {
   return (
     <div className="deleteAppointmentButtonContainer">
       <Button variant="outlined" color="secondary" onClick={onClick}>
-        מחק תור
+        {title}
         <DeleteOutlineOutlinedIcon className="deleteOutlineOutlinedIcon" />
       </Button>
     </div>

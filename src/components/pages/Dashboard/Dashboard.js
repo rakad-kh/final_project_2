@@ -8,10 +8,18 @@ const Dashboard = () => {
     setAppArray([...appArray]);
   };
 
+  const onDeleteAppFromIndex = (index) => {
+    appArray.splice(index, 1);
+    setAppArray([...appArray]);
+  };
+
   return (
     <Fragment>
       <AppointmentForm addAppToArray={addAppToArray} />
-      <AppointmentsContainer appArray={appArray} />
+      <AppointmentsContainer
+        appArray={appArray}
+        onDeleteAppFromIndex={onDeleteAppFromIndex}
+      />
     </Fragment>
   );
 };

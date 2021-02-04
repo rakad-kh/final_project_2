@@ -3,7 +3,7 @@ import { manHoldingBox } from '../../assets';
 import './AppointmentsContainer.css';
 import AppointmentsTable from '../AppointmentsTable';
 
-const AppointmentsContainer = ({ appArray }) => {
+const AppointmentsContainer = ({ appArray, onDeleteAppFromIndex }) => {
   return (
     <div className="appointmentsContainer">
       <div id="default" className={appArray.length ? 'hide' : null}>
@@ -19,7 +19,10 @@ const AppointmentsContainer = ({ appArray }) => {
         className="tableContainer"
         className={appArray.length ? null : 'hide'}
       >
-        <AppointmentsTable rows={appArray} />
+        <AppointmentsTable
+          rows={appArray}
+          onDeleteAppFromIndex={onDeleteAppFromIndex}
+        />
       </div>
     </div>
   );
