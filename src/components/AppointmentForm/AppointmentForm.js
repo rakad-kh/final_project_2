@@ -48,32 +48,33 @@ const AppointmentForm = ({ addAppToArray }) => {
         content={donationType}
         setData={setDonation}
         data={donation}
-      ></SelectButton>
+      />
       <SelectButton
         header={'בית חולים'}
         content={hospitalName}
         setData={setHospital}
         data={hospital}
-      ></SelectButton>
+      />
       <DateTimeButton
         header={'תאריך ושעה'}
         date={date}
         setDate={setDate}
         hour={hour}
         setHour={setHour}
-      ></DateTimeButton>
-      <SelectButton header={'משבצות'} content={squaresNum} setData={setSquares}>
+      />
+      <SelectButton
+        header={'משבצות'}
+        content={squaresNum}
+        setData={setSquares}
         data={squares}
-      </SelectButton>
+      />
       {donation === 'גרנולוציטים' ? (
         <SelectButton
           header={'תוכן הודעה'}
           content={msgContentArray}
           setData={setMsgContent}
           data={msgContent}
-        >
-          data={squares}
-        </SelectButton>
+        />
       ) : null}
       {donation === 'גרנולוציטים' ? (
         <SelectButton
@@ -81,7 +82,7 @@ const AppointmentForm = ({ addAppToArray }) => {
           content={bloodKindArray}
           setData={setBloodKind}
           data={bloodKind}
-        ></SelectButton>
+        />
       ) : null}
       <ConfirmButton
         text="הוספה"
