@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ConfirmButton, SelectButton, DateTimeButton } from '../buttons';
 import './AppointmentForm.css';
 
@@ -15,12 +15,14 @@ const squaresNum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const bloodKind = ["לא ידועה", "+A", "-A", "+B", "-B", "+AB"];
 const msgContent = ["הודעת ברירת מחדל", "zichronmenachem@gmail.com הודעת שגיאה "];
 
-const AppointmentForm = () => {
+const AppointmentForm = (props) => {
   const [donation, setDonation] = useState('טרומבוציטים');
   const [hospital, setHospital] = useState('');
   const [date, setDate] = useState('');
   const [hour, setHour] = useState('');
   const [squares, setSquares] = useState('');
+  const { rows, setRows } = props;
+
 
   return (
     <div className="appointmentForm">
@@ -56,7 +58,7 @@ const AppointmentForm = () => {
           {' '}
           data={squares}
         </SelectButton> : null}
-      <ConfirmButton text="הוספה" />
+      <ConfirmButton text="הוספה" data={{ donation, hospital, date, hour, squares }} rows={rows} setRows={setRows} />
     </div>
   );
 };

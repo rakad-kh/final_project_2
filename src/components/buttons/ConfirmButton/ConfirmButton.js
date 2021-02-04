@@ -1,5 +1,6 @@
 import './ConfirmButton.css';
 import { makeStyles } from '@material-ui/core/styles';
+import { createData } from '../../Table2/utils';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -11,16 +12,24 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const ConfirmButton = ({ text, width, disabled }) => {
+const ConfirmButton = ({ text, width, data, rows, setRows }) => {
   const classes = useStyles();
   const style = {
     width: 110,
   };
+  const { donation, hospital, date, hour, squares } = data;
+  const BuildData = (donation, hospital, date, hour, squares) => {
+    console.log("aaaaaa", data)
+    let newRows = [...rows];
+    let newRow = createData(donation, hospital, date, hour, squares);
+    setRows(newRows.push(newRow));
+    console.log("bbbbbb", rows)
+  }
 
 
   return (
     <form className={classes.container} noValidate>
-      <button type={"submit"} className="confirmButton" style={style} disabled={disabled}>
+      <button type={"button"} onClick={() => BuildData(donation, hospital, date, hour, squares)} className="confirmButton" style={style} >
         {text}
       </button>
     </form>
