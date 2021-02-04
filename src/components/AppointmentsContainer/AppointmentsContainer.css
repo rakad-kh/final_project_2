@@ -25,3 +25,17 @@
   height: 401px;
   opacity: 1;
 }
+
+.hide {
+  display: none;
+}
+
+.tableContainer {
+  display: flex;
+  justify-content: center;
+  background: #f3f5f7;
+}
+
+.appointmentsTable {
+  width: 80%;
+}

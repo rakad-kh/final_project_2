@@ -7,23 +7,27 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: 'wrap',
     margin: theme.spacing(1),
     minWidth: 100,
-    color: "black"
-  }
+    color: 'black',
+  },
 }));
 
-const ConfirmButton = ({ text, width, disabled }) => {
+const ConfirmButton = ({ text, width, disabled, onClick }) => {
   const classes = useStyles();
   const style = {
     width: 110,
   };
 
-
   return (
-    <form className={classes.container} noValidate>
-      <button type={"submit"} className="confirmButton" style={style} disabled={disabled}>
+    <div className={classes.container}>
+      <button
+        className="confirmButton"
+        style={style}
+        disabled={disabled}
+        onClick={onClick}
+      >
         {text}
       </button>
-    </form>
+    </div>
   );
 };
 
