@@ -44,12 +44,16 @@ const CollapseRow = ({
       >
         <Collapse in={open} timeout="auto" unmountOnExit>
           <Box margin={1}>
-            <Table size="small" aria-label="purchases" style={{
-              borderCollapse: 'separate',
-              borderSpacing: '0px 8px ',
-              width: '100%',
-              background: 'white',
-            }}>
+            <Table
+              size="small"
+              aria-label="purchases"
+              style={{
+                borderCollapse: 'separate',
+                borderSpacing: '0px 8px ',
+                width: '100%',
+                background: 'white',
+              }}
+            >
               <TableBody>
                 {volunteers.map(({ name, number, isArrivalConfirmed }) => (
                   <TableRow key={name} className="tableRow">
@@ -59,8 +63,8 @@ const CollapseRow = ({
                       {isArrivalConfirmed ? (
                         <ArrivalApproved />
                       ) : (
-                          <ArrivalDisapproved />
-                        )}
+                        <ArrivalDisapproved />
+                      )}
                     </TableCell>
                     <TableCell className="tableCell" align="center">
                       {number}
@@ -70,7 +74,7 @@ const CollapseRow = ({
                     </TableCell>
                   </TableRow>
                 ))}
-                <TableRow key='empty' className="tableRow">
+                <TableRow key="empty" className="tableRow">
                   <TableCell className="tableCell" align="center" colSpan={3}>
                     אין רישום
                   </TableCell>
@@ -78,7 +82,7 @@ const CollapseRow = ({
               </TableBody>
             </Table>
           </Box>
-          <DeleteAppointmentButton onClick={onDelete} />
+          <DeleteAppointmentButton onClick={onDelete} title="מחק תור" />
         </Collapse>
       </TableCell>
     </TableRow>

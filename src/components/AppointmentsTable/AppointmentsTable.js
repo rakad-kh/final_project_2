@@ -22,7 +22,11 @@ const rowStyle = {
   opacity: '1 ',
 };
 
-const AppointmentsTable = ({ rows }) => {
+const AppointmentsTable = ({ rows, onDeleteAppFromIndex }) => {
+  const makeOnDelete = (index) => () => {
+    onDeleteAppFromIndex(index);
+  };
+
   return (
     <TableContainer>
       <Table
@@ -55,7 +59,11 @@ const AppointmentsTable = ({ rows }) => {
         </TableHead>
         <TableBody>
           {rows.map((row, index) => (
-            <AppointmentRow key={index} row={row} />
+            <AppointmentRow
+              key={index}
+              row={row}
+              onDelete={makeOnDelete(index)}
+            />
           ))}
         </TableBody>
       </Table>
