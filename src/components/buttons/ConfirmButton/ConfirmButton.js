@@ -18,13 +18,13 @@ const ConfirmButton = ({ text, width, disabled, onClick }) => {
   const style = {
     width: 110,
   };
-  const { donation, hospital, date, hour, squares } = data;
+  // const { donation, hospital, date, hour, squares } = data;
   const BuildData = (donation, hospital, date, hour, squares) => {
-    console.log("aaaaaa", data)
-    let newRows = [...rows];
+    // console.log("aaaaaa", data)
+    // let newRows = [...rows];
     let newRow = createData(donation, hospital, date, hour, squares);
-    setRows(newRows.push(newRow));
-    console.log("bbbbbb", rows)
+    // setRows(newRows.push(newRow));
+    // console.log("bbbbbb", rows)
   }
 
   return (
