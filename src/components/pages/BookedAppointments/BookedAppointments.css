@@ -2,9 +2,7 @@
   display: flex;
   justify-content: center;
   margin: 20px 0;
+  height: 10vh;
 }
 
-.addLocationOutlinedIcon {
-  margin-top: 29px;
-  color: #5c5e69;
-}
+

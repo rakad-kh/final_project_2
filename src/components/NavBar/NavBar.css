@@ -1,20 +1,26 @@
 .navBar {
-  height: 80px;
   background: #347d8d 0% 0% no-repeat padding-box;
   width: 100%;
-  display: grid;
-
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 10vh;
   grid-template-columns: auto auto auto;
   grid-template-areas: 'header buttons logo';
 }
 
 .logo {
   grid-area: logo;
-  justify-self: end;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .buttons {
   grid-area: buttons;
   display: flex;
-  justify-content: center;
+  margin: 1px;
+  padding: 5px;
 }

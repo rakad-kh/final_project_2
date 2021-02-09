@@ -13,7 +13,8 @@ const cellStyle = {
   opacity: '1 ',
   paddingBottom: 0,
   paddingTop: 0,
-  textAlign: 'center',
+  fontSize: 'small',
+  textAlign: 'center'
 };
 
 const rowStyle = {
@@ -39,20 +40,20 @@ const AppointmentsTable = ({ rows, onDeleteAppFromIndex }) => {
       >
         <TableHead align="right">
           <TableRow style={rowStyle}>
-            <TableCell style={cellStyle} width="10%"></TableCell>
-            <TableCell style={cellStyle} width="30%">
+            <TableCell style={cellStyle} width="5%"></TableCell>
+            <TableCell style={cellStyle} width="19%">
               כמות משבצות
             </TableCell>
-            <TableCell style={cellStyle} width="30%">
+            <TableCell style={cellStyle} width="19%">
               שעה
             </TableCell>
-            <TableCell style={cellStyle} width="30%">
+            <TableCell style={cellStyle} width="19%">
               תאריך
             </TableCell>
-            <TableCell style={cellStyle} width="30%">
+            <TableCell style={cellStyle} width="19%">
               בית חולים
             </TableCell>
-            <TableCell style={cellStyle} width="30%">
+            <TableCell style={cellStyle} width="19%">
               סוג תרומה
             </TableCell>
           </TableRow>

@@ -21,6 +21,7 @@ const cellStyle = {
   paddingTop: 0,
   padding: 0,
   textAlign: 'center',
+  fontSize: 'small'
 };
 
 const AppointmentRow = ({ row, onDelete }) => {
@@ -29,25 +30,26 @@ const AppointmentRow = ({ row, onDelete }) => {
 
   return (
     <TableRow className={classes.root}>
-      <TableCell width="10%" style={cellStyle}>
+      <TableCell width="5%" style={cellStyle}
+      >
         <DeleteAppointmentButton onClick={onDelete} />
       </TableCell>
-      <TableCell width="30%" style={cellStyle}>
+      <TableCell width="19%" style={cellStyle}>
         {squares}
       </TableCell>
-      <TableCell width="30%" style={cellStyle}>
+      <TableCell width="19%" style={cellStyle}>
         {hour}
       </TableCell>
-      <TableCell width="30%" style={cellStyle}>
+      <TableCell width="19%" style={cellStyle}>
         {date}
       </TableCell>
-      <TableCell width="30%" style={cellStyle}>
+      <TableCell width="19%" style={cellStyle}>
         {hospital}
       </TableCell>
-      <TableCell width="30%" style={cellStyle}>
+      <TableCell width="19%" style={cellStyle}>
         {donation}
       </TableCell>
-    </TableRow>
+    </TableRow >
   );
 };
 

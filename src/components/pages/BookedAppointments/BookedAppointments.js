@@ -19,7 +19,7 @@ const BookedAppointments = () => {
   return (
     <Fragment>
       <div className="selectButtonContainer">
-        <AddLocationOutlinedIcon className="addLocationOutlinedIcon" />
+
         <SelectButton
           header={'בית חולים'}
           content={hospitalName}

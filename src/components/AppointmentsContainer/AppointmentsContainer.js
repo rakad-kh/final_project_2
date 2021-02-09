@@ -30,13 +30,19 @@ const AppointmentsContainer = ({ appArray, onDeleteAppFromIndex }) => {
       <div
         className="tableContainer"
         className={appArray.length ? null : 'hide'}
+        style={{
+          borderCollapse: 'separate',
+          borderSpacing: '0px 4px ',
+          width: '60%',
+          height: '48px',
+        }}
       >
         <AppointmentsTable
           rows={appArray}
           onDeleteAppFromIndex={onDeleteAppFromIndex}
         />
       </div>
-    </div>
+    </div >
   );
 };
 

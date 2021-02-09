@@ -1,14 +1,13 @@
-import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
+import DeleteOutlineOutline from '@material-ui/icons/DeleteOutline';
 import Button from '@material-ui/core/Button';
 
-import './DeleteAppointmentButton.css';
 
 const DeleteAppointmentButton = ({ onClick, title }) => {
   return (
     <div className="deleteAppointmentButtonContainer">
-      <Button variant="outlined" color="secondary" onClick={onClick}>
+      <Button color="secondary" onClick={onClick}>
         {title}
-        <DeleteOutlineOutlinedIcon className="deleteOutlineOutlinedIcon" />
+        <DeleteOutlineOutline />
       </Button>
     </div>
   );

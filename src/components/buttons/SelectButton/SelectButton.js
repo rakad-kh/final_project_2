@@ -1,12 +1,13 @@
 import './SelectButton.css';
-
+import AddLocationOutlinedIcon from '@material-ui/icons/AddLocationOutlined';
 import { makeStyles } from '@material-ui/core/styles';
 import { InputLabel, MenuItem, FormControl, Select } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1),
-    minWidth: 90,
+    margin: theme.spacing(2),
+    paddingHight: '1vh',
+    width: '10vw',
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -21,29 +22,37 @@ export default function SelectButton({ setData, header, content, data }) {
 
   return (
     <div>
-      <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">{header}</InputLabel>
+      <FormControl variant="filled" className={classes.formControl}>
+        <InputLabel >
+          <div style={{ marginTop: '0px' }} >{header}</div>
+          {header === 'בית חולים' ? <div style={{ paddingLeft: '100%' }}>{<AddLocationOutlinedIcon className="addLocationOutlinedIcon" />}</div> : null}
+        </InputLabel>
+        <InputLabel >
+          {/* {<AddLocationOutlinedIcon className="addLocationOutlinedIcon" />} */}
+        </InputLabel>
+
         <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          native
           value={data}
-          defaultValue=""
           onChange={handleChange}
-          className={classes.selectEmpty}
+          inputProps={{
+            name: `${header}`,
+            id: 'filled-age-native-simple',
+          }}
         >
           {(() => {
             const options = [];
             for (let elem of content) {
               options.push(
-                <MenuItem key={elem} value={elem}>
+                <option key={elem} value={elem}>
                   {elem}
-                </MenuItem>
+                </option>
               );
             }
             return options;
           })()}
         </Select>
       </FormControl>
-    </div>
+    </div >
   );
 }
